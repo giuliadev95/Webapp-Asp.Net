@@ -1,17 +1,18 @@
-﻿namespace WebappAPI;
+﻿
+namespace WebappAPI;
 
-public class Region : Entity
+public class README : Entity
 {
     // public Guid Id { get; set; }
     public string Name { get; private set; }
     public string Code { get; set; }
     public string? RegionImageUrl { get; set; }
-    public Region()
+    public README()
     {
         Id = Guid.NewGuid();
     }
 
-    public Region(Guid id)
+    public README(Guid id)
     {
         Id = id;
     }
@@ -35,7 +36,7 @@ public class Generic
     public void S()
     {
 
-        Region a = new();
+        README a = new();
         a.ChangeInfo("s");
     }
 }
