@@ -1,18 +1,37 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
+using WebappAPI.Models.Domain;
 
 namespace WebappAPI.Controllers
 {
-        // https://localhost:portnumber/api/Students
-        [Route("api/controller")]
-        [ApiController]
-        public class RegionsController : ControllerBase
+    // https://localhost:portnumber/api/regions
+    [Route("api/controller/regions")]
+    [ApiController]
+    public class RegionsController : ControllerBase
+    {
+        // GET ALL REGIONS: localhost:portnumber/api/regions
+        [HttpGet]
+        public IActionResult GetAll()
         {
-            [HttpGet]
-            public IActionResult Index()
+            var regions = new List<Region>
             {
-                string[] regions = new string[] { "String example" };
-                return Ok(regions);
-            }
+                new Region
+                {
+                    Id = Guid.NewGuid(),
+                    Name = "Lombardia",
+                    Code = "LM",
+                    RegionImageUrl = "https://it.wikipedia.org/wiki/Lombardia#/media/File:Map_of_region_of_Lombardy,_Italy,_with_provinces-it.svg"
+                },
 
+                new Region
+                {
+                    Id = Guid.NewGuid(),
+                    Name = "Piemonte",
+                    Code = "PM",
+                    RegionImageUrl = "https://it.wikipedia.org/wiki/Lombardia#/media/File:Map_of_region_of_Lombardy,_Italy,_with_provinces-it.svg"
+                }
+            };
+            return Ok(regions);
         }
+    }
 }

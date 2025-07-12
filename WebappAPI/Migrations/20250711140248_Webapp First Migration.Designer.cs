@@ -11,7 +11,7 @@ using WebappAPI.Data;
 
 namespace WebappAPI.Migrations
 {
-    [DbContext(typeof(DBContext))]
+    [DbContext(typeof(DbContext))]
     [Migration("20250711140248_Webapp First Migration")]
     partial class WebappFirstMigration
     {
