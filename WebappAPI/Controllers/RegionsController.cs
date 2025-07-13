@@ -1,36 +1,28 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using WebappAPI.Models.Domain;
+using Microsoft.EntityFrameworkCore;
+using WebappAPI.Data;
 
 namespace WebappAPI.Controllers
 {
     // https://localhost:portnumber/api/regions
-    [Route("api/controller/regions")]
+    [Route("api/[controller]")]
     [ApiController]
     public class RegionsController : ControllerBase
     {
+        private readonly DBContext dbContext;
+
+        public RegionsController(DBContext dbContext)
+        {
+            this.dbContext = dbContext;
+        }
+
         // GET ALL REGIONS: localhost:portnumber/api/regions
         [HttpGet]
         public IActionResult GetAll()
         {
-            var regions = new List<Region>
-            {
-                new Region
-                {
-                    Id = Guid.NewGuid(),
-                    Name = "Lombardia",
-                    Code = "LM",
-                    RegionImageUrl = "https://it.wikipedia.org/wiki/Lombardia#/media/File:Map_of_region_of_Lombardy,_Italy,_with_provinces-it.svg"
-                },
-
-                new Region
-                {
-                    Id = Guid.NewGuid(),
-                    Name = "Piemonte",
-                    Code = "PM",
-                    RegionImageUrl = "https://it.wikipedia.org/wiki/Lombardia#/media/File:Map_of_region_of_Lombardy,_Italy,_with_provinces-it.svg"
-                }
-            };
+            var regions = dbContext.Regions.ToList();
             return Ok(regions);
         }
     }

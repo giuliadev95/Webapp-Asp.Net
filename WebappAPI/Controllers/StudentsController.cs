@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebappAPI.Controllers
 {
-    // https://localhost:portnumber/api/Students
+    // https://localhost:portnumber/api/students
     [Route("api/[controller]")]
     [ApiController]
     public class StudentsController : ControllerBase

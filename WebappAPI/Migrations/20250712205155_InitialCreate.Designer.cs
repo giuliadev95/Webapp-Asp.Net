@@ -11,9 +11,9 @@ using WebappAPI.Data;
 
 namespace WebappAPI.Migrations
 {
-    [DbContext(typeof(DbContext))]
-    [Migration("20250711140248_Webapp First Migration")]
-    partial class WebappFirstMigration
+    [DbContext(typeof(DBContext))]
+    [Migration("20250712205155_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -32,7 +32,6 @@ namespace WebappAPI.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -47,11 +46,9 @@ namespace WebappAPI.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Code")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("RegionImageUrl")
@@ -69,18 +66,15 @@ namespace WebappAPI.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("DifficultyId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("LengthKm")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("RegionId")

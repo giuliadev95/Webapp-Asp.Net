@@ -1,6 +1,13 @@
+// port for the API requests 
 @WebappAPI_HostAddress = http://localhost:5185
 
-GET {{WebappAPI_HostAddress}}/weatherforecast/
+// testing if the API calls return the expected answer
+GET {{WebappAPI_HostAddress}}/api/regions
+Accept: application/json
+
+###
+
+GET {{WebappAPI_HostAddress}}/api/students
 Accept: application/json
 
 ###
